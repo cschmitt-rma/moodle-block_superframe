@@ -34,5 +34,7 @@ if (is_siteadmin()) {
     $currentversionversion = $plugin->version;
     $newversion = $plugin->version - 1;
     set_config('version', $newversion, 'block_superframe');
-    echo 'Superframe block downgraded to version: '.$newversion.' from config version '.$currentconfigversion.', version.php version '.$currentversionversion.'.';
+    echo 'Superframe block downgraded to version: '.$newversion.' from config version '.$currentconfigversion.',
+        version.php version '.$currentversionversion.'.';
+
 }

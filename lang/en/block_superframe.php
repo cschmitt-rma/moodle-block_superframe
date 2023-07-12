@@ -31,8 +31,11 @@
 
 // General.
 $string['pluginname'] = 'Super frame';
-$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}!';
 
 // Capability strings.
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
+
+// Custom string.
+$string['message'] = 'How are you today?';

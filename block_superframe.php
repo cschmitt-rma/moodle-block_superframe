@@ -73,7 +73,7 @@ class block_superframe extends block_base {
 
         // OK let's add some content.
         $this->content = new stdClass();
-        $this->content->footer = '';
+        $this->content->footer = get_string('message', 'block_superframe');
         $this->content->text = get_string('welcomeuser', 'block_superframe',
                 $USER);
 
