@@ -37,9 +37,8 @@ $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}!';
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
 
-<<<<<<< HEAD
-// Custom string.
-=======
-// Custom string from MB4D1-1.
->>>>>>> c23812b (Week 1 finished.)
+// Custom string from MB4D1-1
 $string['message'] = 'How are you today?';
+
+// MB4D1-2
+$string['viewlink'] = 'Link to custom view';
