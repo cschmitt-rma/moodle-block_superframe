@@ -24,29 +24,29 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Our default values.
-$iframe_defaulturl = 'https://quizlet.com/132695231/scatter/embed';
-$iframe_defaultheight = '400';
-$iframe_defaultwidth = '600';
+$defaulturl = 'https://quizlet.com/132695231/scatter/embed';
+$defaultheight = '400';
+$defaultwidth = '600';
 
 if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_heading("superframe_settings_header",
         get_string("headerconfig", "block_superframe"),
         get_string("headerconfigdesc", "block_superframe")));
     // URL of the iFrame to be displayed:
-    $settings->add(new admin_setting_configtext("block_superframe/iframe_url",
-        get_string("iframe_url", "block_superframe"),
-        get_string("iframe_urldesc", "block_superframe"),
-        $iframe_defaulturl, PARAM_RAW));
+    $settings->add(new admin_setting_configtext("block_superframe/url",
+        get_string("url", "block_superframe"),
+        get_string("urldesc", "block_superframe"),
+        $defaulturl, PARAM_RAW));
     // Height of the iFrame:
-    $settings->add(new admin_setting_configtext("block_superframe/iframe_height",
-        get_string("iframe_height", "block_superframe"),
-        get_string("iframe_heightdesc", "block_superframe"),
-        $iframe_defaultheight, PARAM_RAW));
+    $settings->add(new admin_setting_configtext("block_superframe/height",
+        get_string("height", "block_superframe"),
+        get_string("heightdesc", "block_superframe"),
+        $defaultheight, PARAM_RAW));
     // Width of the iFrame:
-    $settings->add(new admin_setting_configtext("block_superframe/iframe_width",
-        get_string("iframe_height", "block_superframe"),
-        get_string("iframe_heightdesc", "block_superframe"),
-        $iframe_defaultwidth, PARAM_RAW));
+    $settings->add(new admin_setting_configtext("block_superframe/width",
+        get_string("height", "block_superframe"),
+        get_string("heightdesc", "block_superframe"),
+        $defaultwidth, PARAM_RAW));
     // Layout
     $layout_options = ['course' => get_string('course'),
         'popup' => get_string('popup')];

@@ -47,12 +47,25 @@ $string['viewlink'] = 'Link to custom view';
 $string['headerconfig'] = 'Superframe settings';
 $string['headerconfigdesc'] = 'Allows you to configure the Superframe block';
 // Settings for the iFrame
-$string['iframe_url'] = 'iFrame URL';
-$string['iframe_urldesc'] = 'A URL of a page that can be displayed in an iFrame';
-$string['iframe_height'] = 'iFrame height';
-$string['iframe_heightdesc'] = 'Height of the iFrame in px';
-$string['iframe_width'] = 'iFrame width';
-$string['iframe_widthdesc'] = 'Width of the iFrame in px';
+$string['url'] = 'iFrame URL';
+$string['urldesc'] = 'A URL of a page that can be displayed in an iFrame';
+$string['height'] = 'iFrame height';
+$string['heightdesc'] = 'Height of the iFrame in px';
+$string['width'] = 'iFrame width';
+$string['widthdesc'] = 'Width of the iFrame in px';
 // Layout view
 $string['pagelayout'] = 'Page Layout';
 $string['pagelayoutdesc'] = 'Layout of the page';
+
+// Capability strings (MB401-3)
+$string['superframe:addinstance'] = 'Add new Super frame block';
+$string['superframe:myaddinstance'] = 'Add new Super frame block to my Moodle';
+
+// Instance edit form strings
+$string['size'] = 'Select a size for your iFrame';
+$string['custom'] = 'Custom';
+$string['small'] = 'Small';
+$string['medium'] = 'Medium';
+$string['large'] = 'Large';
+
+

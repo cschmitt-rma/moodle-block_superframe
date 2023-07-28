@@ -22,14 +22,49 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require('../../config.php');
-$config = get_config("block_superframe");
+$blockid = required_param('blockid', PARAM_INT);
+$def_config = get_config("block_superframe"); // Admin settings (instance settings below)
 $PAGE->set_course($COURSE);
 $PAGE->set_url('/blocks/superframe/view.php');
 $PAGE->set_heading($SITE->fullname);
-$PAGE->set_pagelayout($config->pagelayout);
+$PAGE->set_pagelayout($def_config->pagelayout);
 $PAGE->set_title(get_string('pluginname', 'block_superframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
 require_login();
+
+// Get the instance configuration data from the database (stored as a base64-encoded serialized string):
+$configdata = $DB->get_field('block_instances', 'configdata', ['id' => $blockid]);
+// If an entry exists, convert it to an object. If not: Use admin settings.
+if ($configdata) {
+    $config = unserialize(base64_decode($configdata));
+} else {
+    // If no instance settings exit: Use admin settings
+    $config = $def_config;
+    // Admin settings only specify height/width though, not size
+    $config->size = 'custom';
+}
+
+// URL - comes either from instance or admin settings
+$url = $config->url;
+// iFrame attributes
+switch ($config->size) {
+    case 'custom' :
+        $width = $def_config->width;
+        $height = $def_config->height;
+        break;
+    case 'small' :
+        $width = 360;
+        $height = 240;
+        break;
+    case 'medium' :
+        $width = 600;
+        $height = 400;
+        break;
+    case 'large' :
+        $width = 1024;
+        $height = 720;
+        break;
+}
 
 // Start output to browser.
 echo $OUTPUT->header();
@@ -40,9 +75,7 @@ echo '<br>' . $OUTPUT->user_picture($USER, $pic_params) . fullname($USER) . '<br
 
 // iFrame
 // Build and display an iframe.
-$attributes = ['src' => $config->iframe_url,
-    'width' => $config->iframe_width,
-    'height' => $config->iframe_height];
+$attributes = ['src' => $url, 'width' => $width, 'height' => $height];
 echo html_writer::start_tag('iframe', $attributes);
 echo html_writer::end_tag('iframe');
 
