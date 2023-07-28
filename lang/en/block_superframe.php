@@ -40,5 +40,19 @@ $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle'
 // Custom string from MB4D1-1
 $string['message'] = 'How are you today?';
 
-// MB4D1-2
+// Name of link to view in block (MB401-2)
 $string['viewlink'] = 'Link to custom view';
+
+// Settings page (MB401-2)
+$string['headerconfig'] = 'Superframe settings';
+$string['headerconfigdesc'] = 'Allows you to configure the Superframe block';
+// Settings for the iFrame
+$string['iframe_url'] = 'iFrame URL';
+$string['iframe_urldesc'] = 'A URL of a page that can be displayed in an iFrame';
+$string['iframe_height'] = 'iFrame height';
+$string['iframe_heightdesc'] = 'Height of the iFrame in px';
+$string['iframe_width'] = 'iFrame width';
+$string['iframe_widthdesc'] = 'Width of the iFrame in px';
+// Layout view
+$string['pagelayout'] = 'Page Layout';
+$string['pagelayoutdesc'] = 'Layout of the page';
