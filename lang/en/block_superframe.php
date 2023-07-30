@@ -60,6 +60,8 @@ $string['pagelayoutdesc'] = 'Layout of the page';
 // Capability strings (MB401-3)
 $string['superframe:addinstance'] = 'Add new Super frame block';
 $string['superframe:myaddinstance'] = 'Add new Super frame block to my Moodle';
+$string['superframe:seeviewpage'] = 'Access the view page';
+$string['superframe:seeviewpagelink'] = 'Access the link to the view page';
 
 // Instance edit form strings
 $string['size'] = 'Select a size for your iFrame';
