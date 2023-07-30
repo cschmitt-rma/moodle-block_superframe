@@ -77,4 +77,15 @@ $capabilities = array(
             'guest' => CAP_PREVENT
         )
     ),
+    // Restrict access to the user list the block.
+    'block/superframe:seeuserlist' => array(
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
+            'student' => CAP_PREVENT,
+            'guest' => CAP_PREVENT
+        )
+    ),
 );
