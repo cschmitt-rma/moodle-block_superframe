@@ -43,6 +43,9 @@ $string['message'] = 'How are you today?';
 // Name of link to view in block (MB401-2)
 $string['viewlink'] = 'Link to custom view';
 
+// Name of the 'back to course' link on the view page:
+$string['backtocourseurltext'] = 'Go back to course';
+
 // Settings page (MB401-2)
 $string['headerconfig'] = 'Superframe settings';
 $string['headerconfigdesc'] = 'Allows you to configure the Superframe block';
