@@ -42,8 +42,11 @@
 <div>
     <h3>{{welcome}}</h3>
     {{#url}}
-    <a href="{{{url}}}" class="mt-2 font-weight-bold">{{text}}</a>
+    <a href="{{{url}}}" class="d-block mt-2 font-weight-bold">{{text}}</a>
     {{/url}}
+    {{#popurl}}
+    <a href="{{{popurl}}}" class="d-block mt-2 font-weight-bold">{{poptext}}</a>
+    {{/popurl}}
     <h5 class="mt-4">Enrolled students:</h5>
     {{#students}}
     <div class="list-group ml-0 mt-2">

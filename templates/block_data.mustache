@@ -16,40 +16,48 @@
 }}
 
 {{!
-    @template block_superframe/block_content
-    This template renders the content for the block.
+    @template block_superframe/block_data
+
+    This template renders a table of data.
 
     Classes required for JS:
-    * none
+    * none.
 
     Data attributes required for JS:
-    * none
+    * none.
 
     Context variables required for this template:
-    * welcome a welcome message - string.
-    * url the link to the block's main content page (view page).
-    * text the view page link text.
+    * tableheaders an array of column headings for the table.
+    * tabledata an array of arrays of row data for the table body.
 
     Example context (json):
     {
-        "welcome": "Welcome user",
-        "url": "http://www.moodlebites.com",
-        "text": "view page link"
+        tableheaders: ["BlockID", "BlockName", "Course", "CatName"],
+        tabledata: [
+            ["Row 1 ID", "Row 1 Block name", "Row 1 Course shortname", "Row 1 Category name"],
+            ["Row 2 ID", "Row 2 Block name", "Row 2 Course shortname", "Row 2 Category name"]
+        ]
     }
 }}
-
-
-<div>
-    <h3>{{welcome}}</h3>
-    {{#url}}
-    <a href="{{{url}}}" class="mt-2 font-weight-bold">{{text}}</a>
-    {{/url}}
-    <h5 class="mt-4">Enrolled students:</h5>
-    {{#students}}
-    <div class="list-group ml-0 mt-2">
-        <a href="{{baseuserurl}}?id={{id}}&course={{courseid}}" class="list-group-item list-group-item-action">
-            {{firstname}} {{lastname}}
-        </a>
-    </div>
-    {{/students}}
+<div class="table-responsive">
+    <table class="table table-striped">
+        {{! Using a get_string helper }}
+        <caption>
+            {{#str}}tablecaption, block_superframe{{/str}}
+        </caption>
+        <thead>
+        {{#tableheaders}}
+            <th>{{.}}</th>
+        {{/tableheaders}}
+        </thead>
+        <tbody>
+        {{#tabledata}}
+            <tr>
+                {{#.}}
+                    <td>{{.}}</td>
+                {{/.}}
+            </tr>
+        {{/tabledata}}
+        </tbody>
+    </table>
 </div>

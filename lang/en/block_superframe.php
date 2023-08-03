@@ -30,7 +30,7 @@
  */
 
 // General.
-$string['pluginname'] = 'Super frame';
+$string['pluginname'] = 'Super Frame';
 $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}!';
 
 // Capability strings.
@@ -41,7 +41,7 @@ $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle'
 $string['message'] = 'How are you today?';
 
 // Name of link to view in block (MB401-2)
-$string['viewlink'] = 'Link to custom view';
+$string['viewlink'] = 'Custom View';
 
 // Name of the 'back to course' link on the view page:
 $string['backtocourseurltext'] = 'Go back to course';
@@ -67,11 +67,17 @@ $string['superframe:seeviewpage'] = 'Access the view page';
 $string['superframe:seeviewpagelink'] = 'See the link to the view page';
 $string['superframe:seeuserlist'] = 'See the user list';
 
-// Instance edit form strings
+// Instance edit form strings:
 $string['size'] = 'Select a size for your iFrame';
 $string['custom'] = 'Custom';
 $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
 
-
+// Strings for popup table page (MB4D1-5):
+$string['poptext'] = 'List of Blocks';
+$string['blockid'] = 'Block ID';
+$string['blockname'] = 'Block Name';
+$string['course'] = 'Course';
+$string['catname'] = 'Category Name';
+$string['tablecaption'] = 'Blocks used in this course';
