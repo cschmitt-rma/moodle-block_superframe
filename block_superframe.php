@@ -74,22 +74,8 @@ class block_superframe extends block_base {
         // OK let's add some content.
         $this->content = new stdClass();
         $this->content->footer = '';
-
         $renderer = $this->page->get_renderer('block_superframe');
         $this->content->text = $renderer->fetch_block_content($this->instance->id, $this->page->course->id);
-
-        // Display a list of users who are enrolled in the course:
-        /*
-        if (has_capability('block/superframe:seeuserlist', $context)) {
-            $courseid = $this->page->course->id;
-            $users = self::get_course_users($courseid);
-            $this->content->text .= html_writer::start_tag('ul');
-            foreach ($users as $user) {
-                $this->content->text .= html_writer::tag('li', $user->lastname . ', ' . $user->firstname);
-            }
-            $this->content->text .= html_writer::end_tag('ul');
-        }
-        */
 
         return $this->content;
     }
@@ -118,22 +104,5 @@ class block_superframe extends block_base {
     public function has_config() {
         return true;
     }
-
-    // Function to display a list of users who are enrolled in the course
-    private static function get_course_users($courseid) {
-        global $DB;
-
-        $sql = "SELECT u.id, u.firstname, u.lastname ";
-        $sql .= "FROM {course} c ";
-        $sql .= "JOIN {context} x ON c.id = x.instanceid ";
-        $sql .= "JOIN {role_assignments} r ON r.contextid = x.id ";
-        $sql .= "JOIN {user} u ON u.id = r.userid ";
-        $sql .= "WHERE c.id = :courseid ";
-        $sql .= "AND r.roleid = :roleid";
-
-        // In real world query should check users are not deleted/suspended.
-        $records = $DB->get_records_sql($sql, ['courseid' => $courseid, 'roleid' => 5]);
-
-        return $records;
-    }
 }
+

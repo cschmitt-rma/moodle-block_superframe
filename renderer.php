@@ -54,13 +54,36 @@ class block_superframe_renderer extends plugin_renderer_base {
 
         $data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
         $context = \context_block::instance($blockid);
-        // Check the capability.
+        // Display Link (given the viewing user has the necessary capability):
         if (has_capability('block/superframe:seeviewpagelink', $context)) {
             $data->url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid, 'courseid' => $courseid]);
             $data->text = get_string('viewlink', 'block_superframe');
         }
 
-        // Render the data in a Mustache template.
+        // Display a list of users who are enrolled in the course:
+        if (has_capability('block/superframe:seeuserlist', $context)) {
+            $data->students = array_values(self::get_course_users($courseid));
+        }
+
+        // RETURN the data for a Mustache template (different to display_view_page)!
         return $this->render_from_template('block_superframe/block_content', $data);
+    }
+
+    // Helper function to display a list of users who are enrolled in the course:
+    private static function get_course_users($courseid) {
+        global $DB;
+
+        $sql = "SELECT u.id, u.firstname, u.lastname ";
+        $sql .= "FROM {course} c ";
+        $sql .= "JOIN {context} x ON c.id = x.instanceid ";
+        $sql .= "JOIN {role_assignments} r ON r.contextid = x.id ";
+        $sql .= "JOIN {user} u ON u.id = r.userid ";
+        $sql .= "WHERE c.id = :courseid ";
+        $sql .= "AND r.roleid = :roleid";
+
+        // In real world query should check users are not deleted/suspended.
+        $records = $DB->get_records_sql($sql, ['courseid' => $courseid, 'roleid' => 5]);
+
+        return $records;
     }
 }
