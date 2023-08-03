@@ -51,6 +51,8 @@ class block_superframe_renderer extends plugin_renderer_base {
     public function fetch_block_content($blockid, $courseid) {
         global $USER;
         $data = new stdClass();
+        $data->courseid = $courseid; // For the generation of links to user profiles in the user list.
+        $data->baseuserurl = new moodle_url('/user/view.php'); // Also for link generation.
 
         $data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
         $context = \context_block::instance($blockid);
@@ -60,7 +62,7 @@ class block_superframe_renderer extends plugin_renderer_base {
             $data->text = get_string('viewlink', 'block_superframe');
         }
 
-        // Display a list of users who are enrolled in the course:
+        // Display a list of users who are enrolled in the course (given the necessary capabilities of the viewer):
         if (has_capability('block/superframe:seeuserlist', $context)) {
             $data->students = array_values(self::get_course_users($courseid));
         }

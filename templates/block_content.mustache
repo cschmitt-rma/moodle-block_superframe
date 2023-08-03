@@ -44,10 +44,12 @@
     {{#url}}
     <a href="{{{url}}}" class="mt-2 font-weight-bold">{{text}}</a>
     {{/url}}
-    <h5 class="mt-4">Currently enrolled students:</h5>
+    <h5 class="mt-4">Enrolled students:</h5>
     {{#students}}
-    <ul class="list-group ml-0 mt-2">
-        <li class="list-group-item list-group-item-info">{{firstname}} {{lastname}}</li>
-    </ul>
+    <div class="list-group ml-0 mt-2">
+        <a href="{{baseuserurl}}?id={{id}}&course={{courseid}}" class="list-group-item list-group-item-action">
+            {{firstname}} {{lastname}}
+        </a>
+    </div>
     {{/students}}
 </div>
