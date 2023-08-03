@@ -112,15 +112,8 @@ class block_superframe_renderer extends plugin_renderer_base {
             get_string('catname', 'block_superframe'),
         ];
 
-        // Build the data rows.
-        foreach ($records as $record) {
-            $data = array();
-            $data[] = $record->id;
-            $data[] = $record->blockname;
-            $data[] = $record->shortname;
-            $data[] = $record->catname;
-            $table->tabledata[] = $data;
-        }
+        // Data rows.
+        $table->tabledata = array_values($records);
 
         // Start output to browser.
         echo $this->output->header();

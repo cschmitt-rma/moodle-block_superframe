@@ -80,4 +80,4 @@ $string['blockid'] = 'Block ID';
 $string['blockname'] = 'Block Name';
 $string['course'] = 'Course';
 $string['catname'] = 'Category Name';
-$string['tablecaption'] = 'Blocks used in this course';
+$string['tablecaption'] = 'Blocks used on this site';
