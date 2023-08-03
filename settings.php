@@ -48,11 +48,11 @@ if ($ADMIN->fulltree) {
         get_string("heightdesc", "block_superframe"),
         $defaultwidth, PARAM_RAW));
     // Layout
-    $layout_options = ['course' => get_string('course'),
+    $layoutoptions = ['course' => get_string('course'),
         'popup' => get_string('popup')];
     $settings->add(new admin_setting_configselect("block_superframe/pagelayout",
         get_string("pagelayout", "block_superframe"),
         get_string("pagelayoutdesc", "block_superframe"),
         "course",
-        $layout_options));
+        $layoutoptions));
 }

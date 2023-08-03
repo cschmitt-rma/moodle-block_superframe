@@ -24,7 +24,7 @@
 
 class block_superframe_renderer extends plugin_renderer_base {
 
-    function display_view_page($url, $width, $height) {
+    public function display_view_page($url, $width, $height) {
 
         global $USER;
         $data = new stdClass();
@@ -48,7 +48,7 @@ class block_superframe_renderer extends plugin_renderer_base {
         echo $this->output->footer();
     }
 
-    function fetch_block_content($blockid, $courseid) {
+    public function fetch_block_content($blockid, $courseid) {
         global $USER;
         $data = new stdClass();
 

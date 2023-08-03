@@ -25,7 +25,7 @@
 require('../../config.php');
 $blockid = required_param('blockid', PARAM_INT);
 $courseid = required_param('courseid', PARAM_INT);
-$def_config = get_config("block_superframe"); // Admin settings (instance settings below)
+$defconfig = get_config("block_superframe"); // Admin settings (instance settings below).
 
 if ($courseid == $SITE->id) {
     $context = context_system::instance();
@@ -39,7 +39,7 @@ if ($courseid == $SITE->id) {
 $PAGE->set_url('/blocks/superframe/view.php',
     array('blockid' => $blockid, 'courseid' => $courseid));
 $PAGE->set_heading($SITE->fullname);
-$PAGE->set_pagelayout($def_config->pagelayout);
+$PAGE->set_pagelayout($defconfig->pagelayout);
 $PAGE->set_title(get_string('pluginname', 'block_superframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
 require_login();
@@ -53,19 +53,19 @@ $configdata = $DB->get_field('block_instances', 'configdata', ['id' => $blockid]
 if ($configdata) {
     $config = unserialize(base64_decode($configdata));
 } else {
-    // If no instance settings exit: Use admin settings
-    $config = $def_config;
-    // Admin settings only specify height/width though, not size
+    // If no instance settings exit: Use admin settings.
+    $config = $defconfig;
+    // Admin settings only specify height/width though, not size.
     $config->size = 'custom';
 }
 
-// URL - comes either from instance or admin settings
+// URL - comes either from instance or admin settings.
 $url = $config->url;
-// iFrame attributes
+// iFrame attributes.
 switch ($config->size) {
     case 'custom' :
-        $width = $def_config->width;
-        $height = $def_config->height;
+        $width = $defconfig->width;
+        $height = $defconfig->height;
         break;
     case 'small' :
         $width = 360;
