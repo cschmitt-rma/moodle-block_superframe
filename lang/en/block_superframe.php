@@ -75,9 +75,14 @@ $string['medium'] = 'Medium';
 $string['large'] = 'Large';
 
 // Strings for popup table page (MB4D1-5):
+$string['tablecaption'] = 'Blocks used on this site';
 $string['poptext'] = 'List of Blocks';
 $string['blockid'] = 'Block ID';
 $string['blockname'] = 'Block Name';
 $string['course'] = 'Course';
 $string['catname'] = 'Category Name';
-$string['tablecaption'] = 'Blocks used on this site';
+
+// Strings for table editing page:
+$string['tablemanager'] = 'Table Manager: ';
+$string['tabletext'] = 'Table editing';
+$string['norecordsfound'] = 'No records found';

@@ -41,18 +41,15 @@
 
 <div>
     <h3>{{welcome}}</h3>
-    {{#url}}
-    <a href="{{{url}}}" class="d-block mt-2 font-weight-bold">{{text}}</a>
-    {{/url}}
-    {{#popurl}}
-    <a href="{{{popurl}}}" class="d-block mt-2 font-weight-bold">{{poptext}}</a>
-    {{/popurl}}
+        <a href="{{{url}}}" class="d-block mt-2 font-weight-bold">{{text}}</a>
+        <a href="{{{popurl}}}" class="d-block mt-2 font-weight-bold" target="_blank">{{poptext}}</a>
+        <a href="{{{tableurl}}}" target="_blank" class="d-block mt-2 font-weight-bold">{{tabletext}}</a>
     <h5 class="mt-4">Enrolled students:</h5>
     {{#students}}
-    <div class="list-group ml-0 mt-2">
-        <a href="{{baseuserurl}}?id={{id}}&course={{courseid}}" class="list-group-item list-group-item-action">
-            {{firstname}} {{lastname}}
-        </a>
-    </div>
+        <div class="list-group ml-0 mt-2">
+            <a href="{{baseuserurl}}?id={{id}}&course={{courseid}}" class="list-group-item list-group-item-action">
+                {{firstname}} {{lastname}}
+            </a>
+        </div>
     {{/students}}
 </div>
