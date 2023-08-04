@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * This is a one page wonder table manager
@@ -173,7 +173,11 @@ echo $renderer->heading($pagetitle.$tablename, 2);
 if ($action == "edit") {
     $alldata = $DB->get_records($tablename, ['id' => $actionitem], null, $fieldlist);
 } else { // Get all the records in the table.
-    $alldata = $DB->get_records($tablename, [], null, $fieldlist);
+    $filter = array();
+    if ($courseid != $SITE->id) {
+        $filter['id'] = $courseid;
+    }
+    $alldata = $DB->get_records($tablename, $filter, null, $fieldlist);
 }
 
 // Call the function at the top of the page to display an html table.
