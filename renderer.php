@@ -74,7 +74,7 @@ class block_superframe_renderer extends plugin_renderer_base {
         $data->poptext = get_string('poptext', 'block_superframe');
 
         // Add a link to the table editing page.
-        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
+        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php', ['courseid' => $courseid]);
         $data->tabletext = get_string('tabletext', 'block_superframe');
 
         // RETURN the data for a Mustache template (different to display_view_page)!

@@ -110,6 +110,7 @@ $pagetitle = get_string('tablemanager', 'block_superframe');
 // Fetch URL parameters.
 $action = optional_param('action', 'list', PARAM_TEXT);
 $actionitem = optional_param('id', 0, PARAM_INT);
+$courseid = optional_param('courseid', $SITE->id, PARAM_INT);
 
 // Set course related variables.
 $PAGE->set_course($COURSE);
