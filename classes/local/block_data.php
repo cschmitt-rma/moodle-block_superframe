@@ -38,15 +38,10 @@ namespace block_superframe\local;
 class block_data {
     public static function fetch_block_data() {
         global $DB;
-        $sql = "SELECT b.id, cat.id AS catid, cat.name AS catname, ";
-        $sql .= "b.blockname, c.shortname ";
-        $sql .= "FROM {context} x ";
-        $sql .= "JOIN {block_instances} b ON b.parentcontextid = x.id ";
-        $sql .= "JOIN {course} c ON c.id = x.instanceid ";
-        $sql .= "JOIN {course_categories} cat ON cat.id = c.category ";
-        $sql .= "WHERE x.contextlevel <= :clevel ";
-        $sql .= "ORDER BY b.blockname DESC";
+        $sql = "SELECT u.id, u.firstname, u.lastname, u.username, u.email ";
+        $sql .= "FROM {user} u ";
+        $sql .= "ORDER BY u.lastname";
 
-        return $DB->get_records_sql($sql, ['clevel' => CONTEXT_COURSE]);
+        return $DB->get_records_sql($sql);
     }
 }

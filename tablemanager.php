@@ -87,7 +87,7 @@ class superframe_tablemanager_form extends moodleform {
         $mform = $this->_form;
 
         // Adding the standard "name" field.
-        $fieldname = "fullname";
+        $fieldname = "firstname";
         $mform->addElement('text', $fieldname, $fieldname, array('size' => '64'));
         $mform->setType($fieldname, PARAM_TEXT);
         $mform->addRule($fieldname, null, 'required', null, 'client');
@@ -102,9 +102,9 @@ class superframe_tablemanager_form extends moodleform {
 }
 
 // The table to work with.
-$tablename = "course";
-$fieldname = "fullname";  // This should match the name in the function definition.
-$fieldlist = 'id, fullname, shortname';  // Used to select which fields to return.
+$tablename = "user";
+$fieldname = "firstname";  // This should match the name in the function definition.
+$fieldlist = 'id, firstname, lastname, username, email';  // Used to select which fields to return.
 $pagetitle = get_string('tablemanager', 'block_superframe');
 
 // Fetch URL parameters.
@@ -178,7 +178,7 @@ if ($action == "edit") {
     if ($courseid != $SITE->id) {
         $filter['id'] = $courseid;
     }
-    $alldata = $DB->get_records($tablename, $filter, null, $fieldlist);
+    $alldata = $DB->get_records($tablename, $filter, 'lastname', $fieldlist);
 }
 
 // Call the function at the top of the page to display an html table.
