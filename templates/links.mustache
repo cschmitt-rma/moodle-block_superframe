@@ -28,11 +28,11 @@ Example context (json):
 }
 }}
 
-<div  class="container">
-    <ul class="list-inline">
+<div class="container">
+    <ul class="nav">
         {{#linkdata}}
-            <li class="list-inline-item">
-                <a href="{{{link}}}">{{text}}</a>
+            <li class="nav-item">
+                <a href="{{{link}}}" class="nav-link">{{text}}</a>
             </li>
         {{/linkdata}}
     </ul>
