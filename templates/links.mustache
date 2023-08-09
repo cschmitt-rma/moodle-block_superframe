@@ -15,26 +15,25 @@
     along with Moodle.  If not, see http://www.gnu.org/licenses/.
 }}
 
-    {{!
-    @template block_superframe/frame
+{{!
+@template block_superframe/links
 
-    This template renders a url in an iframe of given size.
+This template renders a list of links.
 
-    Example context (json):
-    {
-        "heading": "My superframe",
-        "url": "http://www.moodlebites.com",
-        "height": "400",
-        "width": "600"
-    }
+Example context (json):
+{
+    "linkdata": List of links with their corresponding texts,
+    "link": "http://my.moodle/linktomysuperframeinstance?size=custom",
+    "text": "Custom",
+}
 }}
 
 <div  class="container">
-    <p>{{fullname}}</p>
-    <h5>{{heading}}</h5>
-    {{> block_superframe/links}}
-    <iframe src="{{url}}" height="{{height}}" width="{{width}}"></iframe>
-    <div class="mt-4">
-        <a href="{{backtocourseurl}}" class="font-weight-bold">{{backtocourseurltext}}</a>
-    </div>
+    <ul class="list-inline">
+        {{#linkdata}}
+            <li class="list-inline-item">
+                <a href="{{{link}}}">{{text}}</a>
+            </li>
+        {{/linkdata}}
+    </ul>
 </div>
