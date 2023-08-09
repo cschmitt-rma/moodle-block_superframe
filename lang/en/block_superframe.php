@@ -86,3 +86,6 @@ $string['catname'] = 'Category Name';
 $string['tablemanager'] = 'Table Manager: ';
 $string['tabletext'] = 'Table editing';
 $string['norecordsfound'] = 'No records found';
+
+// Navigation API (MB4D1-6):
+$string['userlink'] = 'Installed blocks';
