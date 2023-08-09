@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -24,6 +23,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
+// Add link to the block_data page to the course settings menu:
 function block_superframe_extend_navigation_course($navigation, $course, $context) {
     $url = new moodle_url('/blocks/superframe/block_data.php');
     $userlink = get_string('userlink', 'block_superframe');
@@ -32,4 +32,13 @@ function block_superframe_extend_navigation_course($navigation, $course, $contex
         new pix_icon('icon_block', '', 'block_superframe'));
 }
 
+// Add link to the block_data page to all user profiles (under Miscellaneous):
+function block_superframe_myprofile_navigation(core_user\output\myprofile\tree $tree,
+                                                                               $user, $iscurrentuser, $course) {
+
+    $url = new moodle_url('/blocks/superframe/block_data.php');
+    $node = new core_user\output\myprofile\node('miscellaneous', 'superframe',
+        get_string('userlink', 'block_superframe'), null, $url);
+    $tree->add_node($node);
+}
 
