@@ -89,3 +89,8 @@ $string['norecordsfound'] = 'No records found';
 
 // Navigation API (MB4D1-6):
 $string['userlink'] = 'Installed blocks';
+
+// Modal (MB4D1-7):
+$string['about'] = 'About superframe';
+$string['modalbody'] = 'An example from the MoodleBites Developers level 1 course.';
+$string['modalfooter'] = 'Thank you for your interest.';

@@ -27,6 +27,16 @@ class block_superframe_renderer extends plugin_renderer_base {
     public function display_view_page($url, $width, $height, $courseid, $blockid) {
 
         global $USER;
+        // Show Modal after clicking the about link:
+        $this->page->requires->js_call_amd('block_superframe/modal_amd', 'init',
+            array('data' =>
+                array(
+                    'title' => get_string('about', 'block_superframe'),
+                    'body' => get_string('modalbody', 'block_superframe'),
+                    'footer' => get_string('modalfooter', 'block_superframe')
+                )
+            )
+        );
         $data = new stdClass();
 
         // Page heading and iframe data.
@@ -72,8 +82,11 @@ class block_superframe_renderer extends plugin_renderer_base {
         global $USER;
         $data = new stdClass();
         $name = $USER->firstname.' '.$USER->lastname;
+
+        // Data for displaying a popup after clicking on the welcome message in the block:
         $this->page->requires->js_call_amd('block_superframe/test_amd', 'init', ['name' => $name]);
         $data->headingclass = 'block_superframe_heading';
+
         $data->courseid = $courseid; // For the generation of links to user profiles in the user list.
         $data->baseuserurl = new moodle_url('/user/view.php'); // Also for link generation.
 
